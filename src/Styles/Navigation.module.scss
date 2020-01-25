@@ -1,0 +1,19 @@
+nav{
+	border-bottom: 1px solid #cdcdcd;
+	margin-bottom: 30px;
+	a{
+		display: block;
+		padding:.5rem;
+		color:#999999;
+		text-decoration: none;
+		font-weight: bold;
+		&[disabled], &[disabled]:hover, &[disabled]:focus{
+			cursor:default;
+			color:#dfdfdf;
+			outline:none;
+		}
+		&:hover{
+			color:darken(#999999,25%);
+		}
+	}
+}
