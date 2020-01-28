@@ -1,7 +1,7 @@
 import React from "react";
-import Increment from "../Views/Increment";
-import Temperature from "../Views/Temperature";
-import Crud from "../Views/Crud";
+import Increment from "../containers/Increment";
+import Temperature from "../containers/Temperature";
+import Crud from "../containers/Crud";
 import { Route } from "react-router-dom";
 
 const routes = [

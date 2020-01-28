@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../Styles/Crud.module.scss";
+import styles from "../styles/Crud.module.scss";
 
 const crud = () => {
 	return <div className={styles["comp-crud"]}>

@@ -1,14 +1,14 @@
 import React from 'react';
-import styles from './Styles/App.module.scss';
-import './Styles/Global.scss';
+import styles from './styles/App.module.scss';
+import './styles/Global.scss';
 
 import  {
 	BrowserRouter as Router,
 	Switch
 } from "react-router-dom"
-import Navigation from "./Components/Navigation"
-import routes from "./Router/Routes"
-import { RouteWithSubRoutes } from "./Router/Routes"
+import Navigation from "./components/Navigation"
+import routes from "./router/Routes"
+import { RouteWithSubRoutes } from "./router/Routes"
 
 function App() {
 	return (
