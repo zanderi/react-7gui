@@ -1,21 +1,25 @@
-import { initialState } from "../store/store";
+const initialState = {
+	fahrenheit: '',
+	celsius: ''
+};
 
 const temperatureReducer = (state = initialState, action) => {
-	console.log('action', action.type)
 	switch (action.type) {
 		case "CONVERT_CELSIUS":
 			if (action.payload.match(/^[\d]*[.]?[\d]*$/)) {
 				state = {
 					...state,
-					celsius: (action.payload.trim() - 32) * (5 / 9)
+					celsius: (action.payload.trim() - 32) * (5 / 9),
+					fahrenheit: action.payload.trim()
 				}
 			}
 			break;
 		case "CONVERT_FAHRENHEIT":
-			if (action.payload.match(/^[\d]*[.]?[\d]*$/) && action.payload !== '') {
+			if (action.payload.match(/^[\d]*[.]?[\d]*$/)) {
 				state = {
 					...state,
-					fahrenheit: (action.payload.trim() * (9 / 5) + 32)
+					fahrenheit: (action.payload.trim() * (9 / 5) + 32),
+					celsius: action.payload.trim()
 				}
 			}
 			break;

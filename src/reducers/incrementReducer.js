@@ -1,4 +1,4 @@
-import { initialState } from '../store/store';
+const initialState = {	incrementCount: 0 };
 
 const incrementCountReducer = (state = initialState, action) => {
 	if (action.type === "INCREMENT_COUNT") {
