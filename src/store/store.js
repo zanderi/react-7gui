@@ -16,5 +16,5 @@ export const initialState = {
 	}
 };
 
-export const store = createStore(combineReducers({count: increment, temperature: temperature}));
+export const store = createStore(combineReducers({count: increment, temp:temperature}));
 
