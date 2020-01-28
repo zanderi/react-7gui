@@ -8,9 +8,9 @@ class Temperature extends React.Component {
 	render() {
 		return (
 			<section className={`row ${styles['comp-temp']}`}>
-				<TempInput label={'celsius'} updateTemp={ this.props.setFahrenheit } temperature={this.props.celsius}/>
-				=
-				<TempInput label={'fahrenheit'} updateTemp={ this.props.setCelsius } temperature={this.props.fahrenheit}/>
+				<TempInput label={'Celsius'} updateTemp={ this.props.setFahrenheit } temperature={this.props.celsius}/>
+				&nbsp;=&nbsp;
+				<TempInput label={'Fahrenheit'} updateTemp={ this.props.setCelsius } temperature={this.props.fahrenheit}/>
 			</section>
 		)
 	}
