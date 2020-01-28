@@ -1,11 +1,11 @@
-export function setCelsius(temp) {
+export function convertCelsius(temp) {
 	return {
 		type:"CONVERT_CELSIUS",
 		payload: temp
 	}
 }
 
-export function setFahrenheit(temp) {
+export function convertFahrenheit(temp) {
 	return {
 		type:"CONVERT_FAHRENHEIT",
 		payload: temp

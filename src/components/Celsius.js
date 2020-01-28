@@ -4,8 +4,8 @@ export const Celsius = (props) => {
 	return (
 		<label htmlFor="celsius">
 		<input id="celsius" type="text"
-					 defaultValue={props.celsius}
-					 onChange={() => props.updateTemp(this.value)}
+					 value={props.celsius}
+					 onChange={(e) => props.updateFahrenheit(e.target.value)}
 		/>
 			Celsius
 		</label>

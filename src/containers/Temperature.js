@@ -2,16 +2,16 @@ import React from "react";
 import styles from "../styles/Temperature.module.scss"
 import { Celsius } from "../components/Celsius"
 import { Fahrenheit } from "../components/Fahrenheit"
-import {setFahrenheit, setCelsius } from "../actions/temperatureActions";
+import {convertFahrenheit, convertCelsius } from "../actions/temperatureActions";
 import {connect} from "react-redux";
 
 class Temperature extends React.Component {
 	render() {
 		return (
 			<section className={`row ${styles['comp-temp']}`}>
-				<Celsius updateTemp={ () => this.props.setCelsius } celsius={this.props.celsius}/>
-				=
-				<Fahrenheit updateTemp={ () => this.props.setFahrenheit } fahrenheit={this.props.fahrenheit}/>
+				<Celsius updateFahrenheit={ () => this.props.updateFahrenheit } celsius={this.props.celsius}/>
+				&nbsp;=&nbsp;
+				<Fahrenheit updateCelsius={ () => this.props.updateCelsius } fahrenheit={this.props.fahrenheit}/>
 			</section>
 		)
 	}
@@ -19,19 +19,18 @@ class Temperature extends React.Component {
 
 const mapStateToProps = (state) => {
 	return {
-		celsius: state.temp.celsius,
-		fahrenheit: state.temp.fahrenheit
+		celsius: state.temperature.celsius,
+		fahrenheit: state.temperature.fahrenheit
 	}
 };
 
 const mapDispatchToProps = (dispatch) => {
-	console.log('dispatch:');
  return {
- 	setCelsius: (celsius) => {
- 	 dispatch(setCelsius(celsius))
+ 	updateCelsius: (celsius) => {
+ 	 dispatch(convertCelsius(celsius))
 	},
-	setFahrenheit: (fahrenheit) => {
-		dispatch(setFahrenheit(fahrenheit))
+	 updateFahrenheit: (fahrenheit) => {
+		dispatch(convertFahrenheit(fahrenheit))
 	}
  }
 };
