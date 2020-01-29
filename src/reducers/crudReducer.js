@@ -1,12 +1,10 @@
 const initialState = {
-	crud: {
 		nameFirst: '',
 		nameLast: '',
 		filter: '',
 		users: [],
 		userExists: false,
 		updateDeleteDisabled: true
-	}
 };
 
 const crudReducer = (state = initialState, action) => {
@@ -40,6 +38,7 @@ const crudReducer = (state = initialState, action) => {
 						nameLast: ''
 					}
 				}
+				return state;
 			});
 			if (!state.userExists) {
 				state = {
@@ -62,6 +61,7 @@ const crudReducer = (state = initialState, action) => {
 						users: [...state.users, action.payload]
 					}
 				}
+				return state;
 			});
 			break;
 		case "DELETE_USER":

@@ -4,11 +4,13 @@ import { createUser, updateUser, deleteUser, toggleSelectedUser, setFirstName, s
 import { connect } from "react-redux";
 
 class crud extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = { createBtnEnabled: false };
+		// this.toggleCreate = this.toggleCreate.bind(this)
+	}
 	createEnabled () {
 		return (this.props.nameFirst !== '' && this.props.nameLast !== '')
-	}
-	filterUser () {
-
 	}
 	render() {
 		return <div className={styles["comp-crud"]}>
@@ -61,7 +63,6 @@ class crud extends React.Component {
 				<div className="col-12">
 					<ul className="list-inline">
 						<li className="list-item">
-							test:{ this.props.createEnabled }
 							<button type="button" disabled={this.props.createEnabled} className="btn btn-primary-outline">
 								Create
 							</button>
