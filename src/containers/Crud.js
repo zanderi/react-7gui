@@ -11,7 +11,7 @@ class crud extends React.Component {
 
 	render() {
 		let usersList = null;
-		let filter = this.props.filter.trim()
+		let filter = this.props.filter.trim();
 
 		if(this.props.users.length > 0) {
 			usersList = (
