@@ -19,24 +19,21 @@ export function setLastName (name) {
 	}
 }
 
-export function createUser (user) {
+export function createUser () {
 	return {
-		type: "CREATE_USER",
-		payload: user
+		type: "CREATE_USER"
 	}
 }
 
-export function updateUser (user) {
+export function updateUser () {
 	return {
-		type: "UPDATE_USER",
-		payload: user
+		type: "UPDATE_USER"
 	}
 }
 
-export function deleteUser (user) {
+export function deleteUser () {
 	return {
-		type: "DELETE_USER",
-		payload: user
+		type: "DELETE_USER"
 	}
 }
 
