@@ -7,16 +7,50 @@ class crud extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = { createBtnEnabled: false };
-		// this.toggleCreate = this.toggleCreate.bind(this)
 	}
-	createEnabled () {
-		return (this.props.nameFirst !== '' && this.props.nameLast !== '')
-	}
+
 	render() {
+		let usersList = null;
+		let filter = this.props.filter.trim()
+
+		if(this.props.users.length > 0) {
+			usersList = (
+				this.props.users.map( (user, index) => {
+					if(filter !== ''){
+						if (user.fullName.includes(filter)) {
+							return (
+								<li className={`list-item ${styles["list-item"]}`} key={index}>
+									<button type="button"
+													onClick={() => { this.props.toggleSelectedUser(user) }}
+													className={user.selected ? styles.active : null}>{user.fullName}
+									</button>
+								</li>
+							)
+						}
+					}
+					else {
+						return (
+							<li className={`list-item ${styles["list-item"]}`} key={index}>
+								<button type="button"
+												onClick={() => {
+													this.props.toggleSelectedUser(user)
+												}}
+												className={user.selected ? styles.active : null}>{user.fullName}
+								</button>
+							</li>
+						)
+					}
+					return null
+				})
+			)
+		}
+
+		let createDisabled = (this.props.nameFirst === '' || this.props.nameLast === '');
+
 		return <div className={styles["comp-crud"]}>
 			<div className="row">
 				<div className="col-12">
-					<label htmlFor="filter-users">Filter Prefix:
+					<label htmlFor="filter-users">Filter Prefix:&nbsp;
 						<input id="filter-users"
 									 value={this.props.filter}
 									 onChange={(event) => this.props.setFilter(event.target.value)}
@@ -27,18 +61,14 @@ class crud extends React.Component {
 			<div className="row">
 				<div className={`col-6 ${styles["users-list"]}`}>
 					<ul className="list-unstyled">
-						<li className={`list-item ${styles["list-item"]}`}>
-							<button type="button">
-
-							</button>
-						</li>
+						{ usersList }
 					</ul>
 				</div>
 				<div className="col-6">
 					<ul className="list-unstyled">
 						<li className="list-item">
 							<label htmlFor="first-name">
-								Name:
+								Name:&nbsp;
 									<input id="first-name"
 									 type="text"
 									 value={this.props.nameFirst}
@@ -48,7 +78,7 @@ class crud extends React.Component {
 						</li>
 						<li className="list-item">
 							<label htmlFor="last-name">
-								Surname:
+								Surname:&nbsp;
 								<input id="last-name"
 											 type="text"
 											 value={this.props.nameLast}
@@ -63,17 +93,26 @@ class crud extends React.Component {
 				<div className="col-12">
 					<ul className="list-inline">
 						<li className="list-item">
-							<button type="button" disabled={this.props.createEnabled} className="btn btn-primary-outline">
+							<button type="button"
+											disabled={createDisabled}
+											onClick={this.props.createUser}
+											className="btn btn-primary-outline">
 								Create
 							</button>
 						</li>
 						<li className="list-item">
-							<button type="button" className="btn btn-primary-outline">
+							<button type="button"
+											disabled={this.props.updateDeleteDisabled}
+											onClick={this.props.updateUser}
+											className="btn btn-primary-outline">
 								Update
 							</button>
 						</li>
 						<li className="list-item">
-							<button type="button" className="btn btn-primary-outline">
+							<button type="button"
+											disabled={this.props.updateDeleteDisabled}
+											onClick={this.props.deleteUser}
+											className="btn btn-primary-outline">
 								Delete
 							</button>
 						</li>
