@@ -43,7 +43,8 @@ const crudReducer = (state = initialState, action) => {
 						fullName: state.nameLast + ', ' + state.nameFirst,
 						selected: false,
 						first: state.nameFirst,
-						last: state.nameLast
+						last: state.nameLast,
+						id: 'user-' + new Date().getTime()+'-'+Math.trunc(Math.random()*1000)
 					}],
 					nameFirst: '',
 					nameLast: ''

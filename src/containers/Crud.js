@@ -19,7 +19,7 @@ class crud extends React.Component {
 					if(filter !== ''){
 						if (user.fullName.includes(filter)) {
 							return (
-								<li className={`list-item ${styles["list-item"]}`} key={index}>
+								<li className={`list-item ${styles["list-item"]}`} key={user.id}>
 									<button type="button"
 													onClick={() => { this.props.toggleSelectedUser(user) }}
 													className={user.selected ? styles.active : null}>{user.fullName}
@@ -30,7 +30,7 @@ class crud extends React.Component {
 					}
 					else {
 						return (
-							<li className={`list-item ${styles["list-item"]}`} key={index}>
+							<li className={`list-item ${styles["list-item"]}`} key={user.id}>
 								<button type="button"
 												onClick={() => {
 													this.props.toggleSelectedUser(user)
